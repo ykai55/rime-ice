@@ -56,7 +56,7 @@ style:
   # Enable to show small arrows that indicates if paging up/down is possible
   show_paging: false
 
-  corner_radius: 7
+  corner_radius: 4
   hilited_corner_radius: 0
   border_height: -2
   border_width: -2
@@ -106,8 +106,8 @@ preset_color_schemes:
     translucency: false                     # 磨砂： true | false
     mutual_exclusive: false                 # 色不叠加： true | false
     border_height: 0                        # 外边框 高
-    border_width: 0                         # 外边框 宽
-    corner_radius: 10                       # 外边框 圆角半径
+    border_width: 4                         # 外边框 宽
+    corner_radius: 4                        # 外边框 圆角半径
     hilited_corner_radius: 0                # 选中框 圆角半径
     surrounding_extra_expansion: 0          # 候选项背景相对大小？
     shadow_size: 0                          # 阴影大小

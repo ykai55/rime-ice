@@ -50,6 +50,8 @@ engine:
     - selector
     - navigator
     - express_editor
+    - lua_processor@*open_stats_dashboard
+    - lua_processor@*input_stats
   segmentors:
     - ascii_segmentor
     - matcher
@@ -83,6 +85,16 @@ engine:
     - simplifier@traditionalize                     # 简繁切换
     - lua_filter@*search@radical_pinyin             # 部件拆字辅码
     - uniquifier                                    # 去重
+
+
+# Lua 配置: 输入统计
+input_stats:
+  save_text: false
+
+
+# Lua 配置: 打开输入统计网页
+stats_dashboard:
+  url: "http://127.0.0.1:8765"
 
 
 # Lua 配置: 日期、时间、星期、ISO 8601、时间戳的触发关键字
@@ -276,7 +288,10 @@ recognizer:
 key_binder:
   import_preset: default  # 从 default.yaml 继承通用的
   search: "`"             # 辅码引导符，要添加到 speller/alphabet
+  open_stats_dashboard: F18
   # bindings:             # 也可以再增加方案专有的快捷键
+  bindings:
+    - { when: always, accept: Control+Shift+backslash, send: F18 }
 
 
 # editor 用来定制操作键的行为，以下是默认行为 https://github.com/rime/librime/blob/master/src/rime/gear/editor.cc

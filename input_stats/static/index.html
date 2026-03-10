@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rime Input Stats</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="aurora aurora-a"></div>
+    <div class="aurora aurora-b"></div>
+    <main class="page">
+      <header class="hero reveal">
+        <div>
+          <h1>Rime Input Stats</h1>
+          <p>Track committed characters, typing speed, and session rhythm.</p>
+        </div>
+        <div class="controls">
+          <label for="days">Window</label>
+          <select id="days">
+            <option value="1">Today</option>
+            <option value="7" selected>Last 7 days</option>
+            <option value="30">Last 30 days</option>
+            <option value="90">Last 90 days</option>
+          </select>
+          <button id="refresh">Refresh</button>
+        </div>
+      </header>
+
+      <section class="kpis reveal">
+        <article class="card">
+          <h2>Total Chars</h2>
+          <p id="kpiChars" class="value">0</p>
+        </article>
+        <article class="card">
+          <h2>CPM</h2>
+          <p id="kpiCpm" class="value">0</p>
+        </article>
+        <article class="card">
+          <h2>Active Time</h2>
+          <p id="kpiActive" class="value">0m</p>
+        </article>
+        <article class="card">
+          <h2>Sessions</h2>
+          <p id="kpiSessions" class="value">0</p>
+        </article>
+      </section>
+
+      <section class="panel reveal">
+        <div class="panel-head">
+          <h2>Daily Trend</h2>
+          <p id="chartHint">Characters (bars) + CPM (line)</p>
+        </div>
+        <canvas id="dailyChart" height="300" aria-label="Daily trend chart"></canvas>
+      </section>
+
+      <section class="split reveal">
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Recent Sessions</h2>
+            <p>Latest typing sessions</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Start</th>
+                  <th>Chars</th>
+                  <th>CPM</th>
+                  <th>Duration</th>
+                </tr>
+              </thead>
+              <tbody id="sessionsBody"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Recent Events</h2>
+            <p>Readable intermediate data</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Chars</th>
+                  <th>Schema</th>
+                  <th>Text</th>
+                </tr>
+              </thead>
+              <tbody id="eventsBody"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <footer class="foot reveal">
+        <p id="meta"></p>
+      </footer>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
